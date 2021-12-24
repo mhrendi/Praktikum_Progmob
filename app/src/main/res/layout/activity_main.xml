@@ -5,14 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/blue_bg"
+        tools:ignore="MissingConstraints">
+
+    </FrameLayout>
+    <TextView
+        android:id="@+id/tvjdm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List Film"
+        android:textSize="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_medium"
+        tools:ignore="MissingConstraints" />
 
     <androidx.recyclerview.widget.RecyclerView
+
         android:id="@+id/recyclerView"
-        android:paddingTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="148dp" />
+        android:paddingTop="?attr/actionBarSize"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"

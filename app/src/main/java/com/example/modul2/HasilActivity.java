@@ -1,7 +1,9 @@
 package com.example.modul2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,8 +19,11 @@ public class HasilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hasil);
 
         Button button = findViewById(R.id.buttonmenu);
+        Button button1 = findViewById(R.id.buttonupdate);
+        Button button2 = findViewById(R.id.buttondelete);
 
         Intent intent = getIntent();
+        String mid = intent.getStringExtra("ID");
         String mjudul = intent.getStringExtra("JUDUL");
         String mtahun = intent.getStringExtra("TAHUN");
         String mradio = intent.getStringExtra("RADIO");
@@ -44,13 +49,48 @@ public class HasilActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HasilActivity.this, UpdateActivity.class);
+                intent.putExtra("ID", mid);
+                intent.putExtra("JUDUL", mjudul);
+                intent.putExtra("TAHUN", mtahun);
+                intent.putExtra("RADIO", mradio);
+                intent.putExtra("RATING", mrating);
+                intent.putExtra("GENRE", mgenre);
+                startActivity(intent);
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogConfirm(mid);
+            }
+        });
 
+
+    }
+    void dialogConfirm(String id){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Hapus Data");
+        builder.setMessage("Apakah anda yakin ingin menghapus data ini?");
+        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                DBHelper myDB = new DBHelper(HasilActivity.this);
+                myDB.deleteData(id);
+                finish();
+            }
+        });
+        builder.setNegativeButton("Cancel",null);
+        builder.create().show();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Toast.makeText(HasilActivity.this, "Data Berhasil Dibuat", Toast.LENGTH_SHORT).show();
+        Toast.makeText(HasilActivity.this, "Data Film", Toast.LENGTH_SHORT).show();
     }
 
     @Override

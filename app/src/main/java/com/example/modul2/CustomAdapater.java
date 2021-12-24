@@ -59,13 +59,13 @@ public class CustomAdapater extends RecyclerView.Adapter<CustomAdapater.MyViewHo
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, UpdateActivity.class);
-                intent.putExtra("id1", String.valueOf(id.get(position)));
-                intent.putExtra("judul1", String.valueOf(judul.get(position)));
-                intent.putExtra("tahun1", String.valueOf(tahun.get(position)));
-                intent.putExtra("umur1", String.valueOf(umur.get(position)));
-                intent.putExtra("rating1", String.valueOf(rating.get(position)));
-                intent.putExtra("genre1", String.valueOf(genre.get(position)));
+                Intent intent = new Intent(context, HasilActivity.class);
+                intent.putExtra("ID", String.valueOf(id.get(position)));
+                intent.putExtra("JUDUL", String.valueOf(judul.get(position)));
+                intent.putExtra("TAHUN", String.valueOf(tahun.get(position)));
+                intent.putExtra("RADIO", String.valueOf(umur.get(position)));
+                intent.putExtra("RATING", String.valueOf(rating.get(position)));
+                intent.putExtra("GENRE", String.valueOf(genre.get(position)));
                 activity.startActivityForResult(intent, 1);
             }
         });

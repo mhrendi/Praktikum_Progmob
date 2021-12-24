@@ -249,17 +249,17 @@
             android:id="@+id/btupdate"
             />
 
-        <Button
-            android:id="@+id/btdelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btupdate"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/button"
-            android:onClick="deletedata"
-            android:text="Delete Review"
-            />
+<!--        <Button-->
+<!--            android:id="@+id/btdelete"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/btupdate"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:background="@drawable/button"-->
+<!--            android:onClick="deletedata"-->
+<!--            android:text="Delete Review"-->
+<!--            />-->
 
     </RelativeLayout>
 

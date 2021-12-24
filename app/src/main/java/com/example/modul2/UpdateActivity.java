@@ -32,7 +32,7 @@ public class UpdateActivity extends AppCompatActivity {
         etjdlup = findViewById(R.id.etjdlup);
         etthnup = findViewById(R.id.etthnup);
         btupdate = findViewById(R.id.btupdate);
-        btdelete = findViewById(R.id.btdelete);
+//        btdelete = findViewById(R.id.btdelete);
         sbup = findViewById(R.id.sbup);
         rb1 = findViewById(R.id.rb1up);
         rb2 = findViewById(R.id.rb2up);
@@ -110,44 +110,44 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
 
-        btdelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogConfirm(id);
-            }
-        });
+//        btdelete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialogConfirm(id);
+//            }
+//        });
 
     }
 
-    void dialogConfirm(String id){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Hapus Data");
-        builder.setMessage("Apakah anda yakin ingin menghapus data ini?");
-        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                DBHelper myDB = new DBHelper(UpdateActivity.this);
-                myDB.deleteData(id);
-                finish();
-            }
-        });
-        builder.setNegativeButton("Cancel",null);
-        builder.create().show();
-    }
+//    void dialogConfirm(String id){
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Hapus Data");
+//        builder.setMessage("Apakah anda yakin ingin menghapus data ini?");
+//        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                DBHelper myDB = new DBHelper(UpdateActivity.this);
+//                myDB.deleteData(id);
+//                finish();
+//            }
+//        });
+//        builder.setNegativeButton("Cancel",null);
+//        builder.create().show();
+//    }
 
     void getIntentData(){
-        if(getIntent().hasExtra("id1") &&
-                getIntent().hasExtra("judul1") &&
-                getIntent().hasExtra("tahun1") &&
-                getIntent().hasExtra("umur1") &&
-                getIntent().hasExtra("rating1") &&
-                getIntent().hasExtra("genre1")){
-            id = getIntent().getStringExtra("id1");
-            judul = getIntent().getStringExtra("judul1");
-            tahun = getIntent().getStringExtra("tahun1");
-            umur = getIntent().getStringExtra("umur1");
-            rating = getIntent().getStringExtra("rating1");
-            genre = getIntent().getStringExtra("genre1");
+        if(getIntent().hasExtra("ID") &&
+                getIntent().hasExtra("JUDUL") &&
+                getIntent().hasExtra("TAHUN") &&
+                getIntent().hasExtra("RADIO") &&
+                getIntent().hasExtra("RATING") &&
+                getIntent().hasExtra("GENRE")){
+            id = getIntent().getStringExtra("ID");
+            judul = getIntent().getStringExtra("JUDUL");
+            tahun = getIntent().getStringExtra("TAHUN");
+            umur = getIntent().getStringExtra("RADIO");
+            rating = getIntent().getStringExtra("RATING");
+            genre = getIntent().getStringExtra("GENRE");
 
             etjdlup.setText(judul);
             etthnup.setText(tahun);
